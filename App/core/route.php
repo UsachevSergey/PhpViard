@@ -27,14 +27,13 @@ class Route
             //тут же разбираем параметры 
             //если в строке переданы параметры
             if (strrchr($controller_name ,'?')!=FALSE  ) {
-                //получаем строку с параметрами
-                $enum_params = explode('?', $controller_name)[1];
-                //получаем перечень параметров
-                $array_params = explode('&',$enum_params);
+                //получаем масив с параметрами
+                $array_params = $_GET; 
                 //ну и если есть параметры то из имени действия убирваем
                 $controller_name = explode('?',$controller_name)[0];   
             }
             }
+            
             //если переход на index то перенаправить на main
              if(Trim($controller_name)=='index.php'){
                     
@@ -47,23 +46,22 @@ class Route
         if (!empty($routes[2])) {
             $action_name=$routes[2];
             
-              //если нет действий
+              //если параметров не создано
             if (!empty($array_params)){
             //тут же разбираем параметры 
             //если в строке переданы параметры
             if (strpos("?",  $action_name)!=FALSE  ) {
-                //получаем строку с параметрами
-                $enum_params = explode('?', $action_name)[1];
-                //получаем перечень параметров
-                $array_params = explode('&',$enum_params);
+                //получаем масив с параметрами
+                $array_params = $_GET; 
                 //ну и если есть параметры то из имени действия убирваем
                 $action_name = explode('?',$action_name)[0];
             }
-            }
-            
-             
+            }  
         }
         
+        //обрабаотывем параметры запроса
+        //если есть хотябы 1 параметр то формируем масив вида [имя параметра]=[значение параметра]
+          
         //добавляем префиксы
         $modelname = "Model_".$action_name;
         $controller_name="Controller_".$controller_name;
@@ -91,7 +89,19 @@ class Route
         //если в указаном контролере есть указаный метод то вызываем этот метод
         if (method_exists($controller,$action_name))
                 { 
-            $controller->$action_name();
+            
+             
+            //если количество параметров больше 0 то передать в метод параметры
+            if(count($array_params)>0)
+                { 
+                $controller->$action_name($array_params);
+                }
+                else
+                {
+                $controller->$action_name();
+                }
+            
+            
                 }
                 else
                 {

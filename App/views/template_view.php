@@ -5,9 +5,9 @@
 	<meta charset="utf-8">  
         <link rel="stylesheet" type="text/css" href="/css/style.css" />
         <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />  
-         <!--Foundation-->
+         <!--Foundation--> 
         <link rel="stylesheet" href="css/foundation.css">
-        <link rel="stylesheet" href="css/app.css">
+         
          
 </head>
 <body>
