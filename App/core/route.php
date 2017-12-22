@@ -91,8 +91,12 @@ class Route
                 { 
             
              
-            //если количество параметров больше 0 то передать в метод параметры
-            if(count($array_params)>0)
+            //если масив параметров опредделен и количество параметров больше 0 то передать в метод параметры
+            if( 
+                    !empty($array_params)
+                            && 
+                    count($array_params)>0
+              )
                 { 
                 $controller->$action_name($array_params);
                 }

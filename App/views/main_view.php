@@ -14,7 +14,7 @@
 </div>
 <?php 
 //если были переданы параметры то вывести список переданых параметров
-if ($data) {
+if (!empty($data) && $data!=null) {
      echo 'Переданы параметры:<br>';
     foreach ($data as $key => $value) 
         {
