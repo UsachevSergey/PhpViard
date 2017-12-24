@@ -25,8 +25,11 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
+                      
                         <li  <?php  if($content_view=='main_view.php'){ echo "class='active'"; } ?> ><a href="main">Главная</a></li>  
+                       
                         <li <?php  if($content_view=='error404_view.php'){ echo "class='active'"; } ?> ><a href="Dferfcwefqw">Страницаа с ошибкой</a></li>
+                        
                         <li><a href="Dferfcwefqw">Третья страница</a></li>
                         <li class="dropdown"> 
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">раскрывающийся список <span class="caret"></span></a>
@@ -44,11 +47,12 @@
                     </ul> 
                     <ul class="nav navbar-nav navbar-right">
                         <?php
+                        //блок отвечает за кнопки входа и выхода
                         //если залогинен
                         if (!empty($_SESSION["login"])) {
-                            echo ' <li><a href="logout">выход</a></li>';
+                            include 'partialview/logout.php';
                         } else {
-                            echo '<li><a href="login">вход</a></li>';
+                            include 'partialview/login.php';
                         }
                         ?>
 
