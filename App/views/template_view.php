@@ -25,11 +25,15 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                      
-                        <li  <?php  if($content_view=='main_view.php'){ echo "class='active'"; } ?> ><a href="main">Главная</a></li>  
-                       
-                        <li <?php  if($content_view=='error404_view.php'){ echo "class='active'"; } ?> ><a href="Dferfcwefqw">Страницаа с ошибкой</a></li>
-                        
+
+                        <li  <?php if ($content_view == 'main_view.php') {
+    echo "class='active'";
+} ?> ><a href="main">Главная</a></li>  
+
+                        <li <?php if ($content_view == 'error404_view.php') {
+    echo "class='active'";
+} ?> ><a href="Dferfcwefqw">Страницаа с ошибкой</a></li>
+
                         <li><a href="Dferfcwefqw">Третья страница</a></li>
                         <li class="dropdown"> 
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">раскрывающийся список <span class="caret"></span></a>
@@ -77,6 +81,18 @@
         <footer class="navbar-fixed-bottom"><p class=" pull-right  ">© сайт&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></footer>  
         <script src="../../js/jquery-3.2.1.slim.min.js" type="text/javascript"></script>  
         <script src="../../js/bootstrap.min.js"></script>
+
+
+        <?php
+        //если это форма регистрации то подключить скрипт верефикации данных
+        if ($content_view == 'registration_view.php') {
+            echo '<script src="../../js/validationform.js"></script>';
+        }
+        ?>
+
+
+
+
     </body>
 
 

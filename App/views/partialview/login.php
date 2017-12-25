@@ -18,7 +18,7 @@
                     <button type="submit" class="btn btn-primary ">Войти</button>
                     <br>
                     <br>
-                    <a href="registration">Регистрация</a> 
+                    <a href="auth/registration">Регистрация</a> 
                 </form>
                 
                

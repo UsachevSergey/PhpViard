@@ -20,7 +20,7 @@ class model_login extends Model {
 
             //запрашиваем id пользователя которому принадлежит указаный логин и пароль
             //подготавливаем запрос
-            $currenttemp = $sbsase->prepare("select id,Login,FirstName,LastName from users where login='" . $login_current_user . "' &&  password = '" . $currentpass . "'");
+            $currenttemp = $sbsase->prepare("select id,Login,FirstName,LastName,Email from users where login='" . $login_current_user . "' &&  password = '" . $currentpass . "'");
 
 
             $currenttemp->execute();

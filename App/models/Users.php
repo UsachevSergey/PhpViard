@@ -5,5 +5,6 @@ class Users {
  public $Login; 
  public $FirstName; 
  public $LastName; 
+  public $Email; 
 }
 ?>
