@@ -8,7 +8,7 @@
           
         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>  
         
-	<input type="text" class="form-control" required="required" name="login" pattern="[A-Za-z]{1,}[A-Za-z0-9]{5,}">
+	<input type="text" class="form-control" required="required" name="login" pattern="[A-Za-z]{1,}[A-Za-z0-9]{4,}">
       </div>
       <span class="glyphicon form-control-feedback"></span>
     </div>
@@ -27,11 +27,11 @@
   </div>
   <!-- Блок для ввода телефона -->
   <div class="form-group has-feedback">
-    <label for="phone" class="control-label col-xs-3">Телефон:</label>
+    <label for="phone" class="control-label col-xs-3">Телефон в формате (89609609696):</label>
     <div class="col-xs-6">
       <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-        <input maxlength="10" type="text" class="form-control" required="required" name="phone" pattern="\d{9,10}"
+        <input maxlength="11" type="text" class="form-control" required="required" name="phone" pattern="\d{10,11}"
                >
       </div>
       <span class="glyphicon form-control-feedback"></span>
