@@ -1,4 +1,4 @@
- <li><a href="logout">выход</a></li>
+<li><a href="auth/logout">выход</a></li>
 
 <?php
 

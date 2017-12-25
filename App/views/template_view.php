@@ -69,9 +69,9 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-md-2 bg-danger">1</div>
+                <div class="col-md-2 bg-danger">  </div>
                 <div class="col-md-8 " > <?php include 'App/views/' . $content_view; ?> </div> 
-                <div class="col-md-2 bg-danger">1</div>
+                <div class="col-md-2 bg-danger"><?php include 'App/views/partialview/right_div.php'; ?></div>
             </div> 
         </div>  
         <footer class="navbar-fixed-bottom"><p class=" pull-right  ">© сайт&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></footer>  

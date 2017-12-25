@@ -10,8 +10,5 @@ include_once 'App/core/controller.php';
 include_once 'App/core/route.php';
 
 //запускаем маршрутизатор
-Route::start();
-
-
-
+Route::start(); 
 ?>

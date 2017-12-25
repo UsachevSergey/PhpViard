@@ -1,9 +1,8 @@
 <?php  
-session_start();
-session_destroy();
+session_start(); 
 //включаем вывод ошибок 
 ini_set('display_errors',1);  
 $uritest = $_SERVER['REQUEST_URI']; 
 //подключаем bootstrap
-include_once 'App/first.php'; 
+    include_once 'App/first.php'; 
 ?>
