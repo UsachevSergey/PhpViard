@@ -81,7 +81,7 @@ class controller_auth extends Controller {
             //если гет или возникла ошибка то перенаправляем
             $this->view->generate("registration_view.php", "template_view.php");
         }
-    }
+    } 
 
 }
 ?>

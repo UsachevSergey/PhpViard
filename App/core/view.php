@@ -7,7 +7,7 @@ Class View
     //вид страницы
     //общий вид страницы
     //масив элементов для размешение на страницы
-    function generate($content_view,$template_view,$data = null){ 
+    function generate($content_view,$template_view,$datawithcontroller = null){ 
         
         include  'App/views/'.$template_view; 
     
