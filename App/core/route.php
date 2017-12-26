@@ -47,10 +47,10 @@ class Route
             $action_name=$routes[2];
             
               //если параметров не создано
-            if (!empty($array_params)){
+            if (empty($array_params)){
             //тут же разбираем параметры 
             //если в строке переданы параметры
-            if (strpos("?",  $action_name)!=FALSE  ) {
+            if (strpos($action_name,"?")!= FALSE  ) {
                 //получаем масив с параметрами
                 $array_params = $_GET; 
                 //ну и если есть параметры то из имени действия убирваем

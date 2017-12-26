@@ -2,13 +2,12 @@
 
 class model_registration extends Model {
 
+    
+    
+    
     public function try_register_new_user() {
 
-        
-        
-        $message_register = "";
-
-
+         
         //пересенная отвечает за успешное выполнения операций 
         $execution_function = TRUE;
 
@@ -52,8 +51,8 @@ class model_registration extends Model {
 
                 //выполняем запрос
                 $execution_function = $currenttemp->execute();
-            } catch (Exception $e) {
-                phpinfo();
+            } catch (Exception $e) { 
+                
                 $execution_function = FALSE;
             }
 
@@ -64,7 +63,7 @@ class model_registration extends Model {
                 $bsase = null;
                 return false;
             }
-        }else{
+        }else{ 
             return false; 
         };
     }
@@ -78,12 +77,13 @@ class model_registration extends Model {
             //создаем pdo объект подключения к бд
             $sbsase = new PDO('mysql:host=localhost;dbname=basephpviard', 'xoiox', 'xoiox');
             //подготавливаем запрос
-            $currenttemp = $sbsase->prepare("select id,Login,FirstName,LastName,Email from users where login='" . $c_login . "' ||  email = '" . $c_email . "' ||  Phone = '" . $c_phone . "'");
+            $currenttemp = $sbsase->prepare("select id,Login,FirstName,LastName,Email from users where login='" . $c_login . "' ||  email = '" . $c_email . "'");
             $currenttemp->execute();
             //возвращает в виде масива классов
             $results = $currenttemp->fetchAll(PDO::FETCH_CLASS, "Users");
             //если есть хоть 1 пользователь с такими даными то запретить регистрацию
             if (count($results) > 0) {
+              $_SESSION['error_messages'] =1; 
                 return false;
             }
         } catch (Exception $e) {
@@ -93,28 +93,25 @@ class model_registration extends Model {
         //проверяем на валидность данных 
         //валиден ли email
        if (! preg_match("/[a-z]{1,}[a-z0-9_.]{1,}[@]{1,1}[a-z]{1,}[a-z0-9_.]{1,}[.][a-z]{1,}[a-z0-9_.]{1,}/i", $c_email)){
-           $message_register ="почта не подходит по шаблону";
+        $_SESSION['error_messages'] =2; 
            return false; 
        } 
           //валиден ли логин
        if (!preg_match("/[a-z]{1,}[a-z0-9_.]{1,}/i", $c_login)  ){
-       $message_register = "Логин не подходит по шаблону";
+        $_SESSION['error_messages'] = 3;
            return false; 
        } 
         //валиден ли логин
        if (strlen($c_login)<5){
-           $message_register = "Длина логина меньше 5";
+         $_SESSION['error_messages'] = 4;
            return false;
-           }
-           
-           
+           } 
            //валиден ли телефон
        if(!preg_match("/[0-9]{10,11}/i", $c_phone)){
            
-           $message_register = "Не все символы телефона цифры";
+           $_SESSION['error_messages'] =5;  
            return false;
-       }    
-         
+       }     
         return true;
     }
 

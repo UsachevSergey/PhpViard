@@ -52,33 +52,33 @@ class controller_auth extends Controller {
 
     function Action_registration() {
 
-        if (isset($_POST) && count($_POST)>0) {
-          
+        if (isset($_POST) && count($_POST) > 0) {
+
             //создаем экземпляр класа регистрации
-          $model = new model_registration();
-          
-          //получаем ответ от метода вставки нового пользователя
-        $suces=$model->try_register_new_user();
-            
-        
-        //если пользователь успешно внесен то переводим на основную страницу
-        if ($suces) {
-              //перенавравляем на главную страницу
-            $host = 'http://' . $_SERVER['HTTP_HOST'] . '/';
-            header('HTTP/1.1 200 OK');
-            header('Location:' . $host . 'main');
-            exit();
-        }
-        else{
-            //иначе переводим на страницу с регистрацией
-            $host = 'http://' . $_SERVER['HTTP_HOST'] . '/';
-            header('HTTP/1.1 200 OK');
-            header('Location:' . $host . 'registration');
-            exit();
-        }
-        
+            $model = new model_registration();
+
+            //получаем ответ от метода вставки нового пользователя
+            $suces = $model->try_register_new_user();
+
+
+            //если пользователь успешно внесен то переводим на основную страницу
+            if ($suces) {
+                //перенавравляем на главную страницу
+                $host = 'http://' . $_SERVER['HTTP_HOST'] . '/';
+                header('HTTP/1.1 200 OK');
+                header('Location:' . $host . 'main');
+                exit();
+            } else {
+                //иначе переводим на страницу с регистрацией
+                $host = 'http://' . $_SERVER['HTTP_HOST'] . '/';
+                header('HTTP/1.1 200 OK');
+                //передаем с параметром ошибки
+                header('Location:' . $host . 'auth/registration');
+                exit();
+            }
         } else {
-            //если гет
+
+            //если гет или возникла ошибка то перенаправляем
             $this->view->generate("registration_view.php", "template_view.php");
         }
     }
