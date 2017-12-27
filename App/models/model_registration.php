@@ -40,8 +40,8 @@ class model_registration extends Model {
 
             try {
                 //создаем pdo объект подключения к бд
-                $sbsase = new PDO('mysql:host=localhost;dbname=basephpviard', 'xoiox', 'xoiox');
-
+                $sbsase = DBconnect::return_db_connect();
+                
                 //подготавливаем запрос
                 $currenttemp = $sbsase->prepare("INSERT INTO `basephpviard`.`users` (Login, Password, Phone,Email) VALUES"
                         . " ('" . $login_current_user . "',"

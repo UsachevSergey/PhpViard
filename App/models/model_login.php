@@ -13,7 +13,7 @@ class model_login extends Model {
         $login_current_user = $_POST['login'];
         try {
             //создаем pdo объект подключения к бд
-            $sbsase = new PDO('mysql:host=localhost;dbname=basephpviard', 'xoiox', 'xoiox');
+            $sbsase = DBconnect::return_db_connect();
 
             //шифруем пароль
             $currentpass = md5(sha1($_POST['password']));

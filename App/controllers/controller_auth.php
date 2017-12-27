@@ -83,6 +83,19 @@ class controller_auth extends Controller {
         }
     } 
 
+    
+    //функция для аутентификации вк
+    function Action_auth_vk() {
+
+        //id пользователя вконтакте
+        $uid = $_GET['uid'];
+        
+        //
+        
+        
+        
+    } 
+
 }
 ?>
 

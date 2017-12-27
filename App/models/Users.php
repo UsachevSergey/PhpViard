@@ -7,7 +7,11 @@ class Users {
  public  $LastName; 
  public  $Email; 
  public  $Phone;
+ public  $vkid;
+
  
+ //select id,Login,FirstName,LastName,Email,Phone,vkid
+
  //в конструктор может принимать id
  public function __construct($curid=null) {
      if ($curid!=null) {
@@ -23,7 +27,7 @@ class Users {
                 $sbsase = new PDO('mysql:host=localhost;dbname=basephpviard', 'xoiox', 'xoiox');
                 //подготавливаем запрос
                 //вытаскиваем пользователя с соответствующим id
-                $currenttemp = $sbsase->prepare("select id,Login,FirstName,LastName,Email,Phone from users where id= '" . $this->id . "'");
+                $currenttemp = $sbsase->prepare("select id,Login,FirstName,LastName,Email,Phone,vkid from users where id= '" . $this->id . "'");
                 //выполняем
                 $currenttemp->execute();
                 //возвращает в виде масива классов
