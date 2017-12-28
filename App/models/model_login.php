@@ -2,7 +2,7 @@
 
 class model_login extends Model {
 
-    public function set_data_session() {
+    public function set_data_session($L,$P,$vk=null) {
 
         //подключаем модель пользователей
         include_once 'Users.php';
@@ -10,14 +10,18 @@ class model_login extends Model {
         //пересенная отвечает за успешное выполнения операций 
         $execution_function = TRUE;
         $id_current_user;
-        $login_current_user = $_POST['login'];
+        $login_current_user = $L;
         try {
             //создаем pdo объект подключения к бд
             $sbsase = DBconnect::return_db_connect();
 
+            if ($vk==null){
             //шифруем пароль
-            $currentpass = md5(sha1($_POST['password']));
-
+            $currentpass = md5(sha1($P));
+            }
+            else{
+            $currentpass = $P ;
+            }
             //запрашиваем id пользователя которому принадлежит указаный логин и пароль
             //подготавливаем запрос
             $currenttemp = $sbsase->prepare("select id,Login,FirstName,LastName,Email from users where login='" . $login_current_user . "' &&  password = '" . $currentpass . "'");

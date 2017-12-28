@@ -5,7 +5,7 @@ class model_registration extends Model {
     
     
     
-    public function try_register_new_user() {
+    public function try_register_new_user($trnu_login,$trnu_email,$trnu_phone,$trnu_password,$vkid=null) {
 
          
         //пересенная отвечает за успешное выполнения операций 
@@ -13,10 +13,10 @@ class model_registration extends Model {
 
 
         //убираем пробелы и переводим в малый регистр
-        $login_current_user =    trim(strtolower( $_POST['login'])); 
-        $email_current_user =    trim(strtolower(  $_POST['email']));
-        $phone_current_user =    trim(strtolower(  $_POST['phone'])); 
-        $password_current_user = trim( $_POST['password']);
+        $login_current_user =  $trnu_login;//  trim(strtolower( $_POST['login'])); 
+        $email_current_user = $trnu_email ;//   trim(strtolower(  $_POST['email']));
+        $phone_current_user =$trnu_phone  ;//    trim(strtolower(  $_POST['phone'])); 
+        $password_current_user =$trnu_password;// trim( $_POST['password']);
 
         try{
         //проверяем на валидность данных
@@ -35,7 +35,10 @@ class model_registration extends Model {
         //если данные валидны
         if ($execution_function) {
 
-            $password_current_user = md5(sha1($_POST['password']));
+            if ($phone_current_user!=911) {
+                 $password_current_user = md5(sha1($_POST['password']));
+            }
+           
 
 
             try {
@@ -43,14 +46,19 @@ class model_registration extends Model {
                 $sbsase = DBconnect::return_db_connect();
                 
                 //подготавливаем запрос
-                $currenttemp = $sbsase->prepare("INSERT INTO `basephpviard`.`users` (Login, Password, Phone,Email) VALUES"
+                $currenttemp = $sbsase->prepare("INSERT INTO `basephpviard`.`users` (Login, Password, Phone,Email,vkid) VALUES"
                         . " ('" . $login_current_user . "',"
                         . " '" . $password_current_user . "', "
                         . "'" . $phone_current_user . "' , "
-                        . " '" . $email_current_user . "');");
+                        . " '" . $email_current_user . "' ,"
+                        . " '" . $vkid . "'"
+                        .");");
 
                 //выполняем запрос
                 $execution_function = $currenttemp->execute();
+                
+                
+                
             } catch (Exception $e) { 
                 
                 $execution_function = FALSE;
@@ -107,7 +115,9 @@ class model_registration extends Model {
            return false;
            } 
            //валиден ли телефон
-       if(!preg_match("/[0-9]{10,11}/i", $c_phone)){
+       if(!preg_match("/[0-9]{10,11}/i", $c_phone) && $c_phone!=911 ){
+           
+           
            
            $_SESSION['error_messages'] =5;  
            return false;

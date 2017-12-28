@@ -16,8 +16,7 @@ class controller_auth extends Controller {
 
         //изначально логин не подтвержден
         // устанавливаем логин
-        $loginvirification = $model->set_data_session();
-        ;
+        $loginvirification = $model->set_data_session($_POST['login'],$_POST['password']);
 
         //если сесия успешна установлена то 
         if ($loginvirification) {
@@ -57,8 +56,13 @@ class controller_auth extends Controller {
             //создаем экземпляр класа регистрации
             $model = new model_registration();
 
+            $l = trim(strtolower($_POST['login']));
+            $e = trim(strtolower($_POST['email']));
+            $p = trim(strtolower($_POST['phone']));
+            $ps = trim($_POST['password']);
+
             //получаем ответ от метода вставки нового пользователя
-            $suces = $model->try_register_new_user();
+            $suces = $model->try_register_new_user($l, $e, $p, $ps);
 
 
             //если пользователь успешно внесен то переводим на основную страницу
@@ -81,20 +85,29 @@ class controller_auth extends Controller {
             //если гет или возникла ошибка то перенаправляем
             $this->view->generate("registration_view.php", "template_view.php");
         }
-    } 
+    }
 
-    
     //функция для аутентификации вк
     function Action_auth_vk() {
 
+
+
+//подключение к базе
+        include_once 'App/models/model_auth_vk.php'; 
+        include_once 'App/models/Users.php';
+        include_once 'App/models/model_registration.php';
+        include_once 'App/models/model_login.php';
+        
+        $this->model = new model_auth_vk();
         //id пользователя вконтакте
         $uid = $_GET['uid'];
-        
-        //
-        
-        
-        
-    } 
+        $suc = $this->model->reg($uid);
+        //перенавравляем на главную страницу
+        $host = 'http://' . $_SERVER['HTTP_HOST'] . '/';
+        header('HTTP/1.1 200 OK');
+        header('Location:' . $host . 'main');
+        exit();
+    }
 
 }
 ?>

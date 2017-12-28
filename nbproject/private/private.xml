@@ -7,16 +7,21 @@
             <file>file:/C:/Apache24/htdocs/App/core/model.php</file>
             <file>file:/C:/Apache24/htdocs/App/views/account_view.php</file>
             <file>file:/C:/Apache24/htdocs/App/views/partialview/right_div.php</file>
+            <file>file:/C:/Apache24/htdocs/App/core/DBconnect.php</file>
             <file>file:/C:/Apache24/htdocs/App/controllers/controller_account.php</file>
             <file>file:/C:/Apache24/htdocs/App/views/partialview/logout.php</file>
             <file>file:/C:/Apache24/htdocs/index.php</file>
             <file>file:/C:/Apache24/htdocs/App/core/view.php</file>
+            <file>file:/C:/Apache24/htdocs/App/controllers/controller_error404.php</file>
             <file>file:/C:/Apache24/htdocs/App/controllers/controller_auth.php</file>
+            <file>file:/C:/Apache24/htdocs/App/models/model_auth_vk.php</file>
             <file>file:/C:/Apache24/htdocs/App/first.php</file>
             <file>file:/C:/Apache24/htdocs/App/views/template_view.php</file>
             <file>file:/C:/Apache24/htdocs/App/core/route.php</file>
             <file>file:/C:/Apache24/htdocs/App/models/Users.php</file>
             <file>file:/C:/Apache24/htdocs/App/core/controller.php</file>
+            <file>file:/C:/Apache24/htdocs/App/models/model_registration.php</file>
+            <file>file:/C:/Apache24/htdocs/App/controllers/controller_main.php</file>
         </group>
     </open-files>
 </project-private>
