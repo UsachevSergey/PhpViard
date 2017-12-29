@@ -7,8 +7,11 @@
             <file>file:/C:/Apache24/htdocs/App/core/model.php</file>
             <file>file:/C:/Apache24/htdocs/App/views/account_view.php</file>
             <file>file:/C:/Apache24/htdocs/App/core/DBconnect.php</file>
+            <file>file:/C:/Apache24/htdocs/App/controllers/controller_account.php</file>
             <file>file:/C:/Apache24/htdocs/index.php</file>
+            <file>file:/C:/Apache24/htdocs/App/controllers/controller_bot.php</file>
             <file>file:/C:/Apache24/htdocs/App/core/view.php</file>
+            <file>file:/C:/Apache24/htdocs/App/controllers/controller_error404.php</file>
             <file>file:/C:/Apache24/htdocs/App/controllers/controller_auth.php</file>
             <file>file:/C:/Apache24/htdocs/App/models/model_auth_vk.php</file>
             <file>file:/C:/Apache24/htdocs/App/first.php</file>

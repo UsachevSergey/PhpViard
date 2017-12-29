@@ -5,7 +5,7 @@ class Route
     static function start(){
         
         //контролер и действие по умолчанию
-        $controller_name =  'Main';
+        $controller_name =  'main';
         $action_name     = 'index';
         //масив параметров
         $array_params;
@@ -64,7 +64,7 @@ class Route
           
         //добавляем префиксы
         $modelname = "Model_".$action_name;
-        $controller_name="Controller_".$controller_name;
+        $controller_name="controller_".$controller_name;
         $action_name ="Action_".$action_name;
         
         // файл модели
